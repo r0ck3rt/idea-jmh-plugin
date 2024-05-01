@@ -4,14 +4,14 @@ plugins {
 }
 
 group = "com.github.artyushov.idea-jmh-plugin"
-version = "1.4.0"
+version = "1.5.0"
 
 repositories {
     mavenCentral()
 }
 
 intellij {
-    version.set("2023.2")
+    version.set("2024.1.1")
     type.set("IC")
 
     plugins.set(listOf("java"))
@@ -24,7 +24,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("232")
+        sinceBuild.set("241")
         untilBuild.set("")
     }
 
