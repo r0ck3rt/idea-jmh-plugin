@@ -32,6 +32,7 @@ public class JmhSettingsEditor extends JavaSettingsEditorBase<JmhConfiguration> 
     SettingsEditorFragment<JmhConfiguration, JrePathEditor> jrePath = CommonJavaFragments.createJrePath(jreSelector);
     fragments.add(jrePath);
     fragments.add(createShortenClasspath(moduleClasspath.component(), jrePath, false));
+    fragments.add(commonParameterFragments.programArguments());
     if (!getProject().isDefault()) {
       SettingsEditorFragment<JmhConfiguration, TagButton> fragment =
         SettingsEditorFragment.createTag("test.use.module.path",
