@@ -43,9 +43,11 @@ public class JmhSettingsEditor extends JavaSettingsEditorBase<JmhConfiguration> 
                                          configuration -> !configuration.isUseModulePath(),
                                          (configuration, value) -> configuration.setUseModulePath(!value));
       fragments.add(fragment);
-      ReadAction.nonBlocking(() -> fragment.setRemovable(
-        FilenameIndex.getFilesByName(getProject(), PsiJavaModule.MODULE_INFO_FILE, GlobalSearchScope.projectScope(getProject())).length > 0))
-        .expireWith(fragment).submit(NonUrgentExecutor.getInstance());
+      ReadAction.nonBlocking(() -> {
+        GlobalSearchScope projectScope = GlobalSearchScope.projectScope(getProject());
+        boolean noAnyModuleInfoFiles = FilenameIndex.getVirtualFilesByName(PsiJavaModule.MODULE_INFO_FILE, projectScope).isEmpty();
+        fragment.setRemovable(noAnyModuleInfoFiles);
+      }).expireWith(fragment).submit(NonUrgentExecutor.getInstance());
     }
   }
 
