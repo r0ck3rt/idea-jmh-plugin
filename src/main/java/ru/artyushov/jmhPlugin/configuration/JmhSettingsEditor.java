@@ -28,6 +28,8 @@ public class JmhSettingsEditor extends JavaSettingsEditorBase<JmhConfiguration> 
   protected void customizeFragments(List<SettingsEditorFragment<JmhConfiguration, ?>> fragments,
                                     SettingsEditorFragment<JmhConfiguration, ModuleClasspathCombo> moduleClasspath,
                                     CommonParameterFragments<JmhConfiguration> commonParameterFragments) {
+    removeFragment(fragments, "runParallel");
+
     DefaultJreSelector jreSelector = DefaultJreSelector.fromModuleDependencies(moduleClasspath.component(), false);
     SettingsEditorFragment<JmhConfiguration, JrePathEditor> jrePath = CommonJavaFragments.createJrePath(jreSelector);
     fragments.add(jrePath);
@@ -51,4 +53,14 @@ public class JmhSettingsEditor extends JavaSettingsEditorBase<JmhConfiguration> 
   public boolean isInplaceValidationSupported() {
     return true;
   }
+
+  private static void removeFragment(List<SettingsEditorFragment<JmhConfiguration, ?>> fragments, String fragmentId) {
+    for (int i = 0; i < fragments.size(); i++) {
+      if (fragments.get(i).getId().equals(fragmentId)) {
+        fragments.remove(i);
+        break;
+      }
+    }
+  }
+
 }
