@@ -61,6 +61,7 @@ To understand the plugin sources please read
  - [Gradle JMH Plugin](https://github.com/melix/jmh-gradle-plugin)
  - [Jenkins JMH Plugin](https://github.com/brianfromoregon/jmh-plugin)
  - [Teamcity JMH Plugin](https://github.com/presidentio/teamcity-plugin-jmh)
+ - [IdeaJOL](https://github.com/stokito/IdeaJol) - Intellij IDEA plugin for [OpenJDK JOL](https://github.com/openjdk/jol/) (Java Object Layout) is the tool to analyze object layout in JVMs.
 
 ## Plugin on JetBrains Marketplace
 
