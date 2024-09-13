@@ -1,10 +1,10 @@
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.17.1"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "com.github.artyushov.idea-jmh-plugin"
-version = "1.5.0"
+version = "1.6.0"
 
 repositories {
     mavenCentral()
